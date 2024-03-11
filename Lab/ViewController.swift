@@ -1,25 +1,6 @@
-//////
-//////  ViewController.swift
-//////  Lab
-//////
-//////  Created by Dmitrii Shelema on 02.03.2024.
-//////
-////
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let photos = Source.allHeroes()
     let titleName = UILabel()
@@ -27,10 +8,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+    }
+    
+    private func setupUI() {
         // Добавляем бэкграунд
         let backgroundView = UIView(frame: view.bounds)
-        backgroundView.backgroundColor = UIColor.black// Здесь можно установить цвет или изображение фона
+        backgroundView.backgroundColor = UIColor.black
         view.addSubview(backgroundView)
         
         // Создаем вертикальный стек представлений для надписи, иконки и коллекции
@@ -45,7 +29,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
-        
         // Добавляем иконку в стек
         icon = UIImageView(image: UIImage(named: "ic"))
         icon.contentMode = .scaleAspectFit
@@ -56,7 +39,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             icon.heightAnchor.constraint(equalToConstant: 27)
         ])
         
-        
         // Добавляем надпись "Choose your hero" в стек
         stackView.addArrangedSubview(titleName)
         titleName.text = "Choose your hero"
@@ -64,12 +46,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         titleName.textAlignment = .center
         titleName.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         
-        
         // Добавляем коллекцию в стек
         setupCollectionView(in: stackView)
     }
     
-    func setupCollectionView(in stackView: UIStackView) {
+    private func setupCollectionView(in stackView: UIStackView) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -86,9 +67,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         stackView.addArrangedSubview(collectionView)
     }
-    
-    
-    
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
@@ -102,72 +85,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         return cell
     }
+}
 
-        
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 583)
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
-
-  
-
-class PhotoCell: UICollectionViewCell {
-    let imageView = UIImageView()
-    let nameLabel = UILabel()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        imageView.contentMode = .scaleAspectFill // Установка режима отображения для изображения
-        contentView.addSubview(imageView)
-        
-        // Настройка ограничений для imageView
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-        
-        // UILabel для отображения имени персонажа
-        nameLabel.textColor = .white
-        nameLabel.textAlignment = .left
-        nameLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-               contentView.addSubview(nameLabel)
-               nameLabel.translatesAutoresizingMaskIntoConstraints = false
-               NSLayoutConstraint.activate([
-                   nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-                   nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                   nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                   nameLabel.heightAnchor.constraint(equalToConstant: 80)])
-
-
-        
-        // Закругление углов imageView
-        imageView.layer.cornerRadius = 10
-        imageView.layer.masksToBounds = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
-}
-
-
-
-
-
-
