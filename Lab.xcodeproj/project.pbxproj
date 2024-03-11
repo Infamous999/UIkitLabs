@@ -17,6 +17,7 @@
 		D1C05FEC2B93711400C87785 /* LabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C05FEB2B93711400C87785 /* LabUITests.swift */; };
 		D1C05FEE2B93711400C87785 /* LabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C05FED2B93711400C87785 /* LabUITestsLaunchTests.swift */; };
 		D1C05FFB2B9A061900C87785 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C05FFA2B9A061900C87785 /* Source.swift */; };
+		D1C05FFD2B9F4F8700C87785 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C05FFC2B9F4F8600C87785 /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D1C05FEB2B93711400C87785 /* LabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabUITests.swift; sourceTree = "<group>"; };
 		D1C05FED2B93711400C87785 /* LabUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D1C05FFA2B9A061900C87785 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		D1C05FFC2B9F4F8600C87785 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				D1C05FCA2B93711200C87785 /* AppDelegate.swift */,
 				D1C05FCC2B93711200C87785 /* SceneDelegate.swift */,
 				D1C05FCE2B93711200C87785 /* ViewController.swift */,
+				D1C05FFC2B9F4F8600C87785 /* PhotoCell.swift */,
 				D1C05FFA2B9A061900C87785 /* Source.swift */,
 				D1C05FD02B93711200C87785 /* Main.storyboard */,
 				D1C05FD32B93711400C87785 /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C05FFB2B9A061900C87785 /* Source.swift in Sources */,
+				D1C05FFD2B9F4F8700C87785 /* PhotoCell.swift in Sources */,
 				D1C05FCF2B93711200C87785 /* ViewController.swift in Sources */,
 				D1C05FCB2B93711200C87785 /* AppDelegate.swift in Sources */,
 				D1C05FCD2B93711200C87785 /* SceneDelegate.swift in Sources */,
